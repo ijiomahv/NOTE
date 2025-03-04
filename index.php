@@ -1,8 +1,4 @@
 <?php
-  
-   $error =array("error1"=>"","error2"=>"");
-   $titleError="";
-   $notesError="";
    include("TEMPLATE/conn.php");
 
    if (isset($_POST['submit'])) {
@@ -12,8 +8,7 @@
          $result= mysqli_query($conn,$sql);
          if ($result) {
              header('Location: notes.php');
-         }
-         
+         }   
    }
        
 ?>

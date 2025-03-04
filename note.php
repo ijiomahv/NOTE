@@ -1,6 +1,8 @@
 <?php
     include('TEMPLATE/conn.php');
 
+     
+
     if (isset($_POST['delete'])) {
         $id_to_delete= mysqli_real_escape_string($conn,$_POST['delete_id']);
         $sql="DELETE FROM note WHERE id= $id_to_delete";
@@ -16,9 +18,23 @@
         $sql="SELECT * FROM note WHERE id=$id";
         $result =mysqli_query($conn,$sql);
         $data= mysqli_fetch_assoc($result);
-        mysqli_close($conn);
     }
-    
+
+   if (isset($_GET['submit'])) {
+      $id = $_GET['_id'];
+      $title =$_GET['title'];
+      $note = $_GET['note'];
+
+      echo $id;
+      echo $title;
+      echo $note;
+
+      $sql="UPDATE note SET title='$title', data_='$note' WHERE id=$id";
+      $result= mysqli_query($conn,$sql);
+      if ($result) {
+          header('Location: succesful.php');
+      }   
+   } 
     
 
 
@@ -48,7 +64,23 @@
            <input type="hidden" name="delete_id" value="<?php echo $data['id']?>"/>
            <input type="submit" name="delete">
       </form>
+      <br>
+      <div>
+      <button>EDIT</button>
+        <div>
+            <form action="note.php" method="GET">
+                <input type="hidden" name="_id" value="<?php echo $data['id']?>"/>
+                <br>
+                <input type="text" name="title" value="<?php echo $data['title']?>">
+                <br>
+                <input type="text" name="note" value="<?php echo $data['data_']?>">
+                <br>
+                <input type="submit" name="submit"/>
+            </form>
+        </div>
+    </div>
     </div>  
     <?php include("TEMPLATE/footer.html");?>
+    
 </body>
 </html>
