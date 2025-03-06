@@ -18,20 +18,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
     <title>Document</title>
 </head>
 <body>
     <?php include("TEMPLATE/header.html");?>
     <?php include("TEMPLATE/back.html");?>
-    <div>
+    <div class="contain">
          <form action="index.php" method="POST">
-            <input type="text" name="title"  placeholder="name" required/>
+            <input type="text" name="title"  placeholder="name" class="form-control" required/>
             <br>
-            <input type="text" name="notes" placeholder="notes" required/>
+            <input type="text" name="notes" placeholder="notes" class="form-control" required/>
             <br>
             <input type="submit" name="submit" />
          </form>
     </div>
     <?php include("TEMPLATE/footer.html");?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
