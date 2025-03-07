@@ -24,7 +24,7 @@
 </head>
 <body>
 <?php include("TEMPLATE/header.html");?> 
-  <div id="contain">
+  <div id="contain" >
     <div>
         <?php foreach($data as $dt): ?>
             <h1><?php echo $dt['title']?></h1>
