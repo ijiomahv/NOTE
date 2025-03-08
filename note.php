@@ -93,7 +93,7 @@
                 <br>
                 <input type="text" name="title" value="<?php echo $data['title']?>" class="form-control">
                 <br>
-                <input type="text" name="note" value="<?php echo $data['data_']?>" class="form-control">
+                <textarea type="text" name="note" value="<?php echo $data['data_']?>" class="form-control"></textarea>
                 <br>
                 <input type="submit" name="submit" id="dlt" class="btn"/>
             </form>

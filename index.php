@@ -54,7 +54,7 @@
          <form action="index.php" method="POST">
             <input type="text" name="title"  placeholder="name" class="form-control" required/>
             <br>
-            <input type="text" name="notes" placeholder="notes" class="form-control" required/>
+            <textarea type="text" name="notes" placeholder="notes" class="form-control" required></textarea>
             <br>
             <input type="submit" name="submit" class="btn" id="btn" />
          </form>
