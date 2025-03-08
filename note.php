@@ -48,40 +48,58 @@
     <title>Document</title>
     <style>
         #contain{
-            height:70vh;
+            height:80vh;
             overflow:scroll;
+            background-color:#3c3cf19a;
         }
+         #note{
+            color:white;
+            background-color:black;
+            border-radius:10px;
+            padding:30px;
+         }
+         #edit{
+            color:white;
+            background-color:black;
+            border-radius:10px;
+            padding:20px;
+         }
+         *{
+            background-color:black;
+         }
+         #dlt{
+            background-color:#3c3cf19a;
+            color:white;
+         }
     </style>
 </head>
 <body>
    <?php include("TEMPLATE/header.html");?>
    <?php include("TEMPLATE/back.html");?>
    <div id="contain">
-      <div>
+    <div class="container" id="note">
           <h1><?php echo $data['title']?></h1>
           <p><?php echo $data['data_']?></p>
-      </div>
       <form action="note.php" method="POST">
            <input type="hidden" name="delete_id" value="<?php echo $data['id']?>"/>
-           <input type="submit" name="delete">
+           <input type="submit" name="delete" class="btn" id="dlt">
       </form>
-      <br>
-      <div>
-      <button>EDIT</button>
-        <div>
-            <form action="note.php" method="GET">
-                <input type="hidden" name="_id" value="<?php echo $data['id']?>"/>
-                <br>
-                <input type="text" name="title" value="<?php echo $data['title']?>">
-                <br>
-                <input type="text" name="note" value="<?php echo $data['data_']?>">
-                <br>
-                <input type="submit" name="submit"/>
-            </form>
-        </div>
-    </div>
     </div>  
-    <?php include("TEMPLATE/footer.html");?>
+      <br>
+     <div class="container" id="edit"> 
+      <h3>EDIT</h3>
+            <form action="note.php" method="GET">
+                <input type="hidden" name="_id" value="<?php echo $data['id']?>" class="form-control"/>
+                <br>
+                <input type="text" name="title" value="<?php echo $data['title']?>" class="form-control">
+                <br>
+                <input type="text" name="note" value="<?php echo $data['data_']?>" class="form-control">
+                <br>
+                <input type="submit" name="submit" id="dlt" class="btn"/>
+            </form>
+        </div>     
+    </div>
+ <?php include("TEMPLATE/footer.html");?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
